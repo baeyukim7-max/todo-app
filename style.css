@@ -1,0 +1,339 @@
+:root {
+  --cream: #fdf3dd;
+  --card: #fffaf0;
+  --ink: #2b2420;
+  --muted: #8a7a63;
+  --border: #2b2420;
+  --teal: #1b998b;
+  --teal-deep: #0f6e63;
+  --mustard: #f2a900;
+  --coral: #e8543e;
+  --coral-deep: #c93f2b;
+  --pink: #f2789f;
+  --radius: 16px;
+  --shadow: 4px 4px 0 var(--border);
+  --high: #e8543e;
+  --medium: #f2a900;
+  --low: #1b998b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  min-height: 100vh;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle, rgba(232, 84, 62, 0.14) 2px, transparent 2.5px),
+    radial-gradient(circle, rgba(27, 153, 139, 0.12) 2px, transparent 2.5px);
+  background-size: 28px 28px, 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.app {
+  width: 100%;
+  max-width: 580px;
+}
+
+.app-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--coral-deep);
+  text-transform: uppercase;
+}
+
+.app-header h1 {
+  margin: 0 0 18px;
+  font-family: "Bungee", "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--teal-deep);
+  text-shadow: 3px 3px 0 var(--mustard);
+  letter-spacing: 1px;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 6px 6px 14px;
+  box-shadow: var(--shadow);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--coral),
+    var(--coral) 8px,
+    var(--mustard) 8px,
+    var(--mustard) 16px
+  );
+  transition: width 0.25s ease;
+}
+
+.progress-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  background: var(--mustard);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input[type="text"] {
+  flex: 1;
+  min-width: 160px;
+}
+
+.task-form input,
+.task-form select,
+.task-form button {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.task-form input::placeholder {
+  color: var(--muted);
+}
+
+.task-form input:focus,
+.task-form select:focus {
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+.task-form button {
+  background: var(--teal);
+  color: #fff9ee;
+  border: 2px solid var(--border);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 12px 22px;
+  box-shadow: var(--shadow);
+  transition: transform 0.08s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+}
+
+.task-form button:hover {
+  background: var(--teal-deep);
+}
+
+.task-form button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--coral);
+  border-color: var(--border);
+  color: #fff9ee;
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.ghost-btn {
+  background: none;
+  border: none;
+  color: var(--coral-deep);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+.ghost-btn:hover {
+  color: var(--coral);
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.08s ease;
+}
+
+.task-item::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--low);
+  border: 2px solid var(--border);
+}
+
+.task-item[data-priority="high"]::before { background: var(--high); }
+.task-item[data-priority="medium"]::before { background: var(--medium); }
+.task-item[data-priority="low"]::before { background: var(--low); }
+
+.task-item.completed {
+  background: #f5ecd8;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--teal);
+}
+
+.task-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 15px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.task-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.task-meta .due {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+.task-meta .due.overdue {
+  color: #fff9ee;
+  background: var(--coral);
+  font-weight: 700;
+}
+
+.task-delete {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: var(--ink);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-delete:hover {
+  background: var(--coral);
+  color: #fff9ee;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--teal-deep);
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 40px;
+  display: none;
+  padding: 20px;
+  background: var(--card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.empty-state.visible {
+  display: block;
+}

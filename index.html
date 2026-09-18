@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Do List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <p class="eyebrow">✦ Daily Diner Planner ✦</p>
+      <h1>To Do List</h1>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+        <span id="progressText" class="progress-text">0 / 0 완료</span>
+      </div>
+    </header>
+
+    <form id="taskForm" class="task-form">
+      <input id="taskInput" type="text" placeholder="할 일을 입력하세요" autocomplete="off" required>
+      <select id="prioritySelect" title="우선순위">
+        <option value="low">낮음</option>
+        <option value="medium" selected>보통</option>
+        <option value="high">높음</option>
+      </select>
+      <input id="dueInput" type="date" title="마감일">
+      <button type="submit">추가</button>
+    </form>
+
+    <div class="toolbar">
+      <div class="filters" role="tablist">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="active">진행중</button>
+        <button class="filter-btn" data-filter="completed">완료</button>
+      </div>
+      <button id="clearCompleted" class="ghost-btn">완료 항목 삭제</button>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+
+    <p id="emptyState" class="empty-state">아직 할 일이 없어요. 위에서 추가해보세요!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
